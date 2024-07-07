@@ -1,14 +1,12 @@
 def are_brackets_symmetric(expression: str) -> str:
     stack = []
-    opening_brackets = {'(', '{', '['}
-    closing_brackets = {')', '}', ']'}
-    
+
     brackets = {')': '(', '}': '{', ']': '['}
     
     for char in expression:
-        if char in opening_brackets:
+        if char in brackets.values():
             stack.append(char)
-        elif char in closing_brackets: 
+        elif char in brackets.keys(): 
             if stack == [] or brackets[char] != stack.pop():
                 return False
     
